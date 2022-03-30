@@ -16,6 +16,10 @@ var RoomsView = {
   },
 
   renderRoom: function(roomname) {
+
+    var $singleRoom = $('<option>').val(roomname).text(roomname);
+
+    RoomsView.$select.append($singleRoom);
     // TODO: Render out a single room.
   },
 
