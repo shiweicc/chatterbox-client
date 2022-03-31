@@ -16,6 +16,8 @@ var MessagesView = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       // TODO: Use the data to update Messages and Rooms
+      MessagesView.$chats.empty();
+      console.log('this is the data', data);
       for (var i = 0; i < data.length; i++) {
         var currMessage = data[i];
         MessagesView.renderMessage(currMessage);

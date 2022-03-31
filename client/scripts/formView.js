@@ -17,15 +17,8 @@ var FormView = {
     message.username = App.username;
     message.text = document.getElementById('message').value;
     // message.roomname = document.getElementById('rooms select').value;
-
-    // assign a username
-    // assign the text
-    // assign the roomname
     Parse.create(message);
-    // TODO: Currently, this is all handleSubmit does.
-    // Make this function actually send a message to the Parse API.
-
-
+    MessagesView.render();
     console.log('click!');
   },
 
