@@ -11,11 +11,7 @@ var Messages = {
   //   roomname: '4chan'
   // },
 
-  _data: function (text, username, roomname) { // updated the above code to accept inputs
-    this.text = text;
-    this.username = username;
-    this.roomname = roomname;
-  },
+  _data: {},
 
   postMessage: function () {
     $.ajax({
