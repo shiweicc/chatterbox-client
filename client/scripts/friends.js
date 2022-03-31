@@ -7,6 +7,9 @@ var Friends = {
 
   _data: null,
 
+  list: () => {
+
+  }
   // TODO: Define methods which allow you to add, toggle,
   // and check the friendship status of other users.
 

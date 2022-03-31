@@ -7,15 +7,15 @@ var Rooms = {
   // TODO: Define how you want to store the list of rooms
   _data: [],
 
-  add: function (nameOfRoom) {
+  add: (nameOfRoom) => {
 
   },
 
-  updateList: function () {
+  updateList: () => {
 
   },
 
-  selected: function () {
+  selected: () => {
 
   }
 
