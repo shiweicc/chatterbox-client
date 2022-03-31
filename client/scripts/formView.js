@@ -11,12 +11,12 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-    // Stop the browser from submitting the form
+
     event.preventDefault();
     var message = {};
     message.username = App.username;
     message.text = document.getElementById('message').value;
-    // message.roomname = document.getElementById('rooms select').value;
+    message.roomname = $('#rooms select').val() || 'lobby';
     Parse.create(message);
     MessagesView.render();
     console.log('click!');

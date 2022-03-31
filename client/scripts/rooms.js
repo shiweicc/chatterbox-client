@@ -3,20 +3,36 @@
 // with and manipulate the data.
 
 var Rooms = {
-
   // TODO: Define how you want to store the list of rooms
-  _data: [],
+  $addRoomInput: $('#rooms #room'),
 
-  add: (nameOfRoom) => {
+
+  _data: new Set(),
+  _selected: '',
+
+  getRooms: function () {
+    Parse.readAll((data) => {
+      for (var i = 0; i < data.length; i++) {
+        var currRoom = data[i].roomname;
+        Rooms._data.add(currRoom);
+
+      }
+      Rooms._data.forEach(item => {
+        RoomsView.renderRoom(item);
+      });
+    });
 
   },
 
-  updateList: () => {
-
-  },
 
   selected: () => {
-
+    var currentlySelected = $('#rooms select').val();
+    // console.log(currentlySelected);
+    if (currentlySelected) {
+      Rooms._selected = currentlySelected;
+      MessagesView.render();
+    }
+    return Rooms._selected;
   }
 
 
