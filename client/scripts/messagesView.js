@@ -7,28 +7,33 @@ var MessagesView = {
 
   initialize: function() {
     MessagesView.render();
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
+
   },
 
   render: function() {
-    // TODO: Render _all_ the messages.
+
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      // TODO: Use the data to update Messages and Rooms
+
       MessagesView.$chats.empty();
       console.log('this is the data', data);
-      for (var i = 0; i < data.length; i++) {
-        var currMessage = data[i];
-        MessagesView.renderMessage(currMessage);
+      if (Rooms._selected === '') {
+        for (var i = 0; i < data.length; i++) {
+          var currMessage = data[i];
+          MessagesView.renderMessage(currMessage);
+        }
+      } else {
+        for (var i = 0; i < data.length; i++) {
+          var currMessage = data[i];
+          if (currMessage.roomname === Rooms._selected) {
+            MessagesView.renderMessage(currMessage);
+          }
+        }
       }
-      // and re-render the corresponding views.
     });
 
   },
 
   renderMessage: function(message) {
-    // TODO: Render a single message.
     var $message = MessageView.render(message);
     MessagesView.$chats.append($message);
   },

@@ -4,18 +4,12 @@
 
 var Messages = {
 
-  // TODO: Define how you want to store your messages.
-  // _data: {
-  //   username: 'shawndrost',
-  //   text: 'trololo',
-  //   roomname: '4chan'
-  // },
 
   _data: {},
 
   postMessage: function () {
     $.ajax({
-      // This is the url you should use to communicate with the API server.
+
       url: 'https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/hr-rpp',
       type: 'POST',
       data: JSON.stringify(_data),

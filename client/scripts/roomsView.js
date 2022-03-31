@@ -6,29 +6,44 @@ var RoomsView = {
   $button: $('#rooms button'),
   $select: $('#rooms select'),
 
+
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
+
+    RoomsView.$button.on('click', RoomsView.handleClick);
+    RoomsView.$select.on('change', RoomsView.handleChange);
+
+    RoomsView.render();
+    Rooms.selected();
   },
 
   render: function() {
-    // TODO: Render out the list of rooms.
+
+    Rooms.getRooms();
   },
 
   renderRoom: function(roomname) {
-
     var $singleRoom = $('<option>').val(roomname).text(roomname);
-
     RoomsView.$select.append($singleRoom);
-    // TODO: Render out a single room.
+
   },
 
   handleChange: function(event) {
-    // TODO: Handle a user selecting a different room.
+
+    var currentlySelected = RoomsView.$select.val();
+    console.log('this is currently selected', currentlySelected);
+    if (currentlySelected) {
+      Rooms._selected = currentlySelected;
+      MessagesView.render();
+    }
+    return Rooms._selected;
+
   },
 
   handleClick: function(event) {
-    // TODO: Handle the user clicking the "Add Room" button.
+
+    var tempRoomName = document.getElementById('room').value;
+    console.log(tempRoomName);
+    RoomsView.renderRoom(tempRoomName);
   }
 
 };
