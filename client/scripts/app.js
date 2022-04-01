@@ -5,8 +5,6 @@
 var App = {
 
   $spinner: $('.spinner img'),
-
-
   username: 'anonymous',
 
   initialize: function() {
@@ -16,14 +14,11 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-
     App.startSpinner();
     App.fetch(App.stopSpinner);
     App.stopSpinner();
     setInterval(App.fetch, 5000);
   },
-
-
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {

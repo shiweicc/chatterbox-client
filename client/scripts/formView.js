@@ -20,8 +20,10 @@ var FormView = {
     message.username = App.username;
     message.text = document.getElementById('message').value;
     message.roomname = $('#rooms select').val() || 'lobby';
+
     Parse.create(message);
     MessagesView.render();
+
     console.log('click!');
   },
 

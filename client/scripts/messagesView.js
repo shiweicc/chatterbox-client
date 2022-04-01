@@ -7,7 +7,6 @@ var MessagesView = {
 
   initialize: function() {
     MessagesView.render();
-
   },
 
   render: function() {
@@ -15,7 +14,7 @@ var MessagesView = {
     Parse.readAll((data) => {
 
       MessagesView.$chats.empty();
-      console.log('this is the data', data);
+
       if (Rooms._selected === '') {
         for (var i = 0; i < data.length; i++) {
           var currMessage = data[i];
