@@ -17,13 +17,13 @@ var Rooms = {
         var currRoom = data[i].roomname;
         Rooms._data.add(currRoom);
       }
+
       Rooms._data.forEach(item => {
         RoomsView.renderRoom(item);
       });
+
     });
-
   },
-
 
   selected: () => {
     var currentlySelected = $('#rooms select').val();
@@ -34,6 +34,5 @@ var Rooms = {
     }
     return Rooms._selected;
   }
-
 
 };
