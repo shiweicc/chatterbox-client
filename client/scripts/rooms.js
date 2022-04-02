@@ -1,39 +1,44 @@
-// RoomsView is an object which controls the DOM elements
-// responsible for displaying and selecting rooms.
+// This object houses all the room _data_ for the app.
+// Treat it like a data structure - add methods to interact
+// with and manipulate the data.
 
-var RoomsView = {
+var Rooms = {
+  // TODO: Define how you want to store the list of rooms
+  $addRoomInput: $('#rooms #room'),
 
-  $button: $('#rooms button'),
-  $select: $('#rooms select'),
 
+  _data: new Set(),
+  _selected: '',
 
-  initialize: function() {
-    RoomsView.$button.on('click', RoomsView.handleClick);
-    RoomsView.$select.on('change', RoomsView.handleChange);
-    RoomsView.render();
-    Rooms.selected();
+  getRooms: function () {
+    Parse.readAll((data) => {
+      for (var i = 0; i < data.length; i++) {
+        var currRoom = data[i].roomname;
+        Rooms._data.add(currRoom);
+      }
+      Rooms._data.forEach(item => {
+        RoomsView.renderRoom(item);
+      });
+    });
   },
 
-  render: function() {
-    Rooms.getRooms();
+  add: function() {
+    var $tempRoomName = $('#Rooms #room').val();
+    if ($tempRoomName === '') {
+      console.log('Please fill in a room name.');
+    } else {
+      RoomsView.renderRoom($tempRoomName);
+    }
   },
 
-  renderRoom: function(roomname) {
-    var $singleRoom = $('<option>').val(roomname).text(roomname);
-    RoomsView.$select.append($singleRoom);
-  },
 
-  handleChange: function(event) {
-    var currentlySelected = RoomsView.$select.val();
-    console.log('this is currently selected', currentlySelected);
+  selected: () => {
+    var currentlySelected = $('#rooms select').val();
     if (currentlySelected) {
       Rooms._selected = currentlySelected;
       MessagesView.render();
     }
     return Rooms._selected;
-  },
-
-  handleClick: function(event) {
-    Rooms.add();
   }
+
 };

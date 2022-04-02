@@ -13,10 +13,6 @@ var MessagesView = {
   render: function() {
     Parse.readAll((data) => {
       MessagesView.$chats.empty();
-<<<<<<< HEAD
-
-=======
->>>>>>> 4380bc33ed370174c19e1830ea05fa45cd055c26
       if (Rooms._selected === '') {
         for (var i = 0; i < data.length; i++) {
           var currMessage = data[i];
