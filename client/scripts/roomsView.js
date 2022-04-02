@@ -30,14 +30,20 @@ var RoomsView = {
       Rooms._selected = currentlySelected;
       MessagesView.render();
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4380bc33ed370174c19e1830ea05fa45cd055c26
     return Rooms._selected;
   },
 
   handleClick: function(event) {
+<<<<<<< HEAD
     var tempRoomName = document.getElementById('room').value;
     console.log(tempRoomName);
     RoomsView.renderRoom(tempRoomName);
+=======
+    Rooms.add();
+>>>>>>> 4380bc33ed370174c19e1830ea05fa45cd055c26
   }
-
 };

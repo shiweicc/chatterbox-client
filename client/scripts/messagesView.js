@@ -6,19 +6,23 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
+    MessagesView.handleClick();
     MessagesView.render();
   },
 
   render: function() {
-
     Parse.readAll((data) => {
-
       MessagesView.$chats.empty();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4380bc33ed370174c19e1830ea05fa45cd055c26
       if (Rooms._selected === '') {
         for (var i = 0; i < data.length; i++) {
           var currMessage = data[i];
-          MessagesView.renderMessage(currMessage);
+          if (currMessage.roomname === 'lobby') {
+            MessagesView.renderMessage(currMessage);
+          }
         }
       } else {
         for (var i = 0; i < data.length; i++) {
@@ -33,13 +37,20 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
+    message.friend = ' ';
+    if (Friends.status(message.username)) {
+      message.friend = ' friend';
+    }
     var $message = MessageView.render(message);
     MessagesView.$chats.append($message);
   },
 
   handleClick: function(event) {
-    // TODO: handle a user clicking on a message
-    // (this should add the sender to the user's friend list).
+    MessagesView.$chats.on('click', '.username', function(event) {
+      var username = event.currentTarget.textContent;
+      Friends.toggleStatus(username);
+      MessagesView.render();
+    });
   }
 
 };

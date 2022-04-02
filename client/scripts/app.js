@@ -5,11 +5,14 @@
 var App = {
 
   $spinner: $('.spinner img'),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4380bc33ed370174c19e1830ea05fa45cd055c26
   username: 'anonymous',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
-
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();

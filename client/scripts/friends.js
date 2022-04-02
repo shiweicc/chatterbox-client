@@ -3,14 +3,25 @@
 // with and manipulate the data.
 
 var Friends = {
-  // TODO: Define how you want to store your list of friends.
-  // TODO: Define methods which allow you to add, toggle,
-  // and check the friendship status of other users.
 
-  _data: null,
 
-  list: () => {
+  list: new Set(),
 
+
+  toggleStatus: (friend) => {
+    if (Friends.status(friend)) {
+      Friends.list.delete(friend);
+    } else {
+      Friends.list.add(friend);
+    }
+  },
+
+  status: (friend) => {
+    if (Friends.list.has(friend)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 };
