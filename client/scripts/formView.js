@@ -11,7 +11,6 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-
     event.preventDefault();
     var message = {};
     message.username = App.username;

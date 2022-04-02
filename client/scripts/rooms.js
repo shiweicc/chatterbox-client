@@ -15,28 +15,30 @@ var Rooms = {
       for (var i = 0; i < data.length; i++) {
         var currRoom = data[i].roomname;
         Rooms._data.add(currRoom);
-
       }
       Rooms._data.forEach(item => {
         RoomsView.renderRoom(item);
       });
     });
+  },
 
+  add: function() {
+    var $tempRoomName = $('#Rooms #room').val();
+    if ($tempRoomName === '') {
+      console.log('Please fill in a room name.');
+    } else {
+      RoomsView.renderRoom($tempRoomName);
+    }
   },
 
 
   selected: () => {
     var currentlySelected = $('#rooms select').val();
-    // console.log(currentlySelected);
     if (currentlySelected) {
       Rooms._selected = currentlySelected;
       MessagesView.render();
     }
     return Rooms._selected;
   }
-
-
-  // TODO: Define methods which allow you to add rooms, update the list,
-  // mark a room as selected, etc.
 
 };

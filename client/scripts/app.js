@@ -6,12 +6,10 @@ var App = {
 
   $spinner: $('.spinner img'),
 
-
   username: 'anonymous',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
-
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
@@ -22,8 +20,6 @@ var App = {
     App.stopSpinner();
     setInterval(App.fetch, 5000);
   },
-
-
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
