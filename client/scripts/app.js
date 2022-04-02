@@ -14,6 +14,7 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
+
     App.startSpinner();
     App.fetch(App.stopSpinner);
     App.stopSpinner();

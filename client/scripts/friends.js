@@ -4,9 +4,7 @@
 
 var Friends = {
 
-
   list: new Set(),
-
 
   toggleStatus: (friend) => {
     if (Friends.status(friend)) {

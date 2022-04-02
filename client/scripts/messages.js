@@ -4,7 +4,6 @@
 
 var Messages = {
 
-
   _data: {},
 
   postMessage: function () {
