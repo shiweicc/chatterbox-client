@@ -13,6 +13,7 @@ var Parse = {
       data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
+        console.log('here', data);
         console.log('chatterbox: Message sent');
       },
       error: function (data) {
@@ -33,4 +34,5 @@ var Parse = {
       }
     });
   }
+
 };

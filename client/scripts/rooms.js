@@ -1,10 +1,11 @@
 // This object houses all the room _data_ for the app.
 // Treat it like a data structure - add methods to interact
 // with and manipulate the data.
-// TODO: Define how you want to store the list of rooms
 
 var Rooms = {
+  // TODO: Define how you want to store the list of rooms
   $addRoomInput: $('#rooms #room'),
+
   _data: new Set(),
   _selected: '',
 
@@ -20,8 +21,9 @@ var Rooms = {
     });
   },
 
+
   add: function() {
-    var $tempRoomName = $('#Rooms #room').val();
+    var $tempRoomName = $('#rooms #room').val();
     if ($tempRoomName === '') {
       console.log('Please fill in a room name.');
     } else {
@@ -38,5 +40,4 @@ var Rooms = {
     }
     return Rooms._selected;
   }
-
 };

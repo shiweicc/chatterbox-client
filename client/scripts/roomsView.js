@@ -6,11 +6,13 @@ var RoomsView = {
   $button: $('#rooms button'),
   $select: $('#rooms select'),
 
+
   initialize: function() {
     RoomsView.$button.on('click', RoomsView.handleClick);
     RoomsView.$select.on('change', RoomsView.handleChange);
     RoomsView.render();
     Rooms.selected();
+    RoomsView.handleClick();
   },
 
   render: function() {
