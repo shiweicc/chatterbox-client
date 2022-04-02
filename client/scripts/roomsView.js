@@ -12,7 +12,6 @@ var RoomsView = {
     RoomsView.$select.on('change', RoomsView.handleChange);
     RoomsView.render();
     Rooms.selected();
-    RoomsView.handleClick();
   },
 
   render: function() {
