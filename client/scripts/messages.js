@@ -3,8 +3,8 @@
 // with and manipulate the data.
 
 var Messages = {
-  // TODO: Define methods which allow you to retrieve from,
-  // add to, and generally interact with the messages.
+
+
   _data: {},
 
   postMessage: function () {
@@ -23,9 +23,6 @@ var Messages = {
       }
     });
   }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 4380bc33ed370174c19e1830ea05fa45cd055c26
 };
