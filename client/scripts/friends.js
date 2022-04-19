@@ -4,6 +4,7 @@
 
 var Friends = {
 
+<<<<<<< HEAD
   list: new Set(),
 
   toggleStatus: (friend) => {
@@ -21,5 +22,26 @@ var Friends = {
       return false;
     }
   }
+=======
+  _data: new Set,
 
+  items: function() {
+    return _.chain([...Friends._data]);
+  },
+>>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
+
+  isFriend: function(name) {
+    return Friends._data.has(name);
+  },
+
+  toggleStatus: function(name, callback = ()=>{}) {
+    if (Friends._data.has(name)) {
+      Friends._data.delete(name);
+      callback(false);
+    } else {
+      Friends._data.add(name);
+      callback(true);
+    }
+  }
+  
 };
