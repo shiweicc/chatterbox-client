@@ -4,7 +4,6 @@
 
 var Messages = {
 
-<<<<<<< HEAD
   _data: {},
 
   postMessage: function () {
@@ -24,39 +23,35 @@ var Messages = {
     });
   }
 
-=======
 
-  _data: {},
->>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
+  // items: function() {
+  //   return _.chain(Object.values(Messages._data)).sortBy('createdAt');
+  // },
 
-  items: function() {
-    return _.chain(Object.values(Messages._data)).sortBy('createdAt');
-  },
+  // add: function(message, callback = ()=>{}) {
+  //   Messages._data[message.message_id] = message;
+  //   callback(Messages.items());
+  // },
 
-  add: function(message, callback = ()=>{}) {
-    Messages._data[message.message_id] = message;
-    callback(Messages.items());
-  },
+  // update: function(messages, callback = ()=>{}) {
+  //   var length = Object.keys(Messages._data).length;
 
-  update: function(messages, callback = ()=>{}) {
-    var length = Object.keys(Messages._data).length;
+  //   for (let message of messages) {
+  //     Messages._data[message.message_id] = Messages._conform(message);
+  //   }
 
-    for (let message of messages) {
-      Messages._data[message.message_id] = Messages._conform(message);
-    }
+  //   // only invoke the callback if something changed
+  //   if (Object.keys(Messages._data).length !== length) {
+  //     callback(Messages.items());
+  //   }
+  // },
 
-    // only invoke the callback if something changed
-    if (Object.keys(Messages._data).length !== length) {
-      callback(Messages.items());
-    }
-  },
+  // _conform: function(message) {
+  //   // ensure each message object conforms to expected shape
+  //   message.text = message.text || '';
+  //   message.username = message.username || '';
+  //   message.roomname = message.roomname || '';
+  //   return message;
+  // }
 
-  _conform: function(message) {
-    // ensure each message object conforms to expected shape
-    message.text = message.text || '';
-    message.username = message.username || '';
-    message.roomname = message.roomname || '';
-    return message;
-  }
-  
 };

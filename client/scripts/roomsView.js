@@ -8,7 +8,6 @@ var RoomsView = {
 
 
   initialize: function() {
-<<<<<<< HEAD
     RoomsView.$button.on('click', RoomsView.handleClick);
     RoomsView.$select.on('change', RoomsView.handleChange);
     RoomsView.render();
@@ -37,43 +36,4 @@ var RoomsView = {
   handleClick: function(event) {
     Rooms.add();
   }
-=======
-
-    RoomsView.$select.on('change', RoomsView.handleChange);
-    RoomsView.$button.on('click', RoomsView.handleClick);
-      },
-
-  render: function() {
-
-    RoomsView.$select.html('');
-    Rooms
-      .items()
-      .each(RoomsView.renderRoom);
-    RoomsView.$select.val(Rooms.selected);
-      },
-
-  renderRoom: function(roomname) {
-
-    var $option = $('<option>').val(roomname).text(roomname);
-    RoomsView.$select.append($option);
-      },
-
-  handleChange: function(event) {
-
-    Rooms.selected = RoomsView.$select.val();
-    MessagesView.render();
-      },
-
-  handleClick: function(event) {
-
-    var roomname = prompt('Enter room name');
-    if (roomname) {
-      Rooms.add(roomname, () => {
-        RoomsView.render();
-        MessagesView.render();
-      });
-    }
-      }
-
->>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
 };

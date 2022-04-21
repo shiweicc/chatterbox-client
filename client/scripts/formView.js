@@ -12,7 +12,6 @@ var FormView = {
 
   handleSubmit: function(event) {
     event.preventDefault();
-<<<<<<< HEAD
     var message = {};
     message.username = App.username;
     message.text = document.getElementById('message').value;
@@ -21,21 +20,6 @@ var FormView = {
     MessagesView.render();
     console.log('click!');
   },
-=======
-
-
-    var message = {
-      username: App.username,
-      text: FormView.$form.find('#message').val(),
-      roomname: Rooms.selected || 'lobby'
-    };
-
-    Parse.create(message, (data) => {
-      _.extend(message, data[0]);
-      Messages.add(message, MessagesView.render);
-    });
-      },
->>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
 
   setStatus: function(active) {
     var status = active ? 'true' : null;

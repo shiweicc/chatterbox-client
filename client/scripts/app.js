@@ -17,7 +17,6 @@ var App = {
 
     App.startSpinner();
     App.fetch(App.stopSpinner);
-<<<<<<< HEAD
     App.stopSpinner();
     setInterval(App.fetch, 5000);
   },
@@ -26,27 +25,6 @@ var App = {
     Parse.readAll((data) => {
       MessagesView.render();
     });
-=======
-
-
-    // Poll for new messages every 3 sec
-    setInterval(App.fetch, 3000);
-      },
-
-  fetch: function(callback = ()=>{}) {
-    Parse.readAll((data) => {
-
-      // Only update if we have messages.
-      if (data && data.length) {
-        Rooms.update(data, RoomsView.render);
-        Messages.update(data, MessagesView.render);
- 
-        callback();
-      }
-      return;
-      
-          });
->>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
   },
 
   startSpinner: function() {

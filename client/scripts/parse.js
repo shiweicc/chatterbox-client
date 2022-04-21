@@ -7,16 +7,11 @@ var Parse = {
   server: `https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/${window.CAMPUS}`,
 
   create: function(message, successCB, errorCB = null) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
     $.ajax({
       url: Parse.server,
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
-<<<<<<< HEAD
       success: function (data) {
         console.log('chatterbox: Message sent');
       },
@@ -25,14 +20,6 @@ var Parse = {
       }
     });
   },
-=======
-      success: successCB,
-      error: errorCB || function (error) {
-        console.error('chatterbox: Failed to create message', error);
-      }
-    });
-      },
->>>>>>> 4c5afc6514192a47ccc7e9b37168db43e5c4d185
 
   readAll: function(successCB, errorCB = null) {
     $.ajax({
